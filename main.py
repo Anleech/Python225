@@ -921,14 +921,6 @@ for i in oneSimbol:
 
 
 
-
-
-
-
-
-
-
-
 # a = tuple(input('Введите по порядку, без пробелов, элементы кортежа:'))
 # print(a)
 # arr = [i for i in a]
@@ -940,3 +932,7 @@ for i in oneSimbol:
 #         c[i] +=1
 # print(c)
 
+
+
+
+print('Вносим изменения')
