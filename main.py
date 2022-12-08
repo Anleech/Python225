@@ -843,6 +843,7 @@
 # print(slicer((1, 2, 8, 5, 1, 2, 9), 8))
 
 # DZ 7
+
 # def change(lst):
 #     lst[0], lst[-1] = lst[-1], lst[0]
 #     return lst
@@ -904,20 +905,20 @@
 #         print(a[i], end=' ')
 
 # DZ 9
-a = ('ab', 'abcd', 'cde', 'abc', 'def')
-print('Исходный кортеж:', a)
-s = input(str('s='))
-if s in a:
-    print('Yes')
-else:
-    print('No')
-# DZ 9.1
-a = tuple(input('Введите по порядку, без пробелов, элементы кортежа:'))
-oneSimbol = set(a)
-# print(set(a))
-print(a)
-for i in oneSimbol:
-    print('Количество', i, '=', a.count(i))
+# a = ('ab', 'abcd', 'cde', 'abc', 'def')
+# print('Исходный кортеж:', a)
+# s = input(str('s='))
+# if s in a:
+#     print('Yes')
+# else:
+#     print('No')
+# # DZ 9.1
+# a = tuple(input('Введите по порядку, без пробелов, элементы кортежа:'))
+# oneSimbol = set(a)
+# # print(set(a))
+# print(a)
+# for i in oneSimbol:
+#     print('Количество', i, '=', a.count(i))
 
 
 
@@ -935,5 +936,1171 @@ for i in oneSimbol:
 
 
 
-print('Вносим изменения')
-print('Вносим измениения в клона')
+# print('Вносим изменения')
+# print('Вносим измениения в клона')
+
+
+# DZ 10
+# k = {'a': 1, 'b': 2}
+# m = {'b': 3, 'c': 4}
+# l = k | m
+# print(l)
+ # DZ 11
+
+# 11.1
+# a = {1: 10, 2: 20}
+# b = {3: 30, 4: 40}
+# c = {5: 50, 6: 60}
+# x = a | b | c
+# print(x)
+#
+# # 11.2
+# a = {'emp1': {'name': 'Jhon', 'salary': 7500},
+#      'emp2': {'name': 'Emma', 'salary': 8000},
+#      'emp3': {'name': 'Brad', 'salary': 6500}}
+# b = {'emp3': {'name': 'Brad', 'salary': 8500}}
+# c = a | b
+# print(a.setdefault('emp3'))
+# # print(a['emp3'])
+# print(a['emp3']['salary'])
+# for x in c:
+#     print(x)
+#     for y in c[x]:
+#         print('\t', y, ":", c[x][y], sep=" ")
+#
+# # 11.3
+# a = int(input('Введите количество студентов:'))
+# b = {input('Имя студента:'): int(input('Введите балл студента:'))for i in range(a)}
+# # print(b)
+# c = 0
+# for i in b:
+#     c += b[i]
+# m = round(c/a)
+# print('Средний бал студентов:', m, '.','Студенты с баллом выше среднего:')
+# for i in b:
+#     if b[i] >= m:
+#         print(i)
+# DZ 12
+# from math import pi
+#
+#
+# def figure(figure_type, **kwargs):
+#     if figure_type == 'rhombus':
+#         return kwargs['d1'] * kwargs['d2']/2
+#     if figure_type == 'square':
+#         return kwargs['a']*kwargs['a']
+#     if figure_type == 'trapezoid':
+#         return (kwargs['a']+kwargs['b'])*kwargs['h']/2
+#     if figure_type == 'circle':
+#         return kwargs['r']*pi*kwargs['r']
+#     else:
+#         print('invalid data')
+#
+#
+# print(figure(figure_type='rhombus', d1=10, d2=8))
+# print(figure(figure_type='square', a=5))
+# print(figure(figure_type='trapezoid', a=12, b=3, h=6))
+# print(figure(figure_type='circle', r=18))
+# print(figure(figure_type='unknown', a=1, b=2, c=3))
+
+# DZ 13
+# 13.1
+# print((lambda x, y, z: x*y*z)(2, 5, 5))
+# print()
+# # # 13.2
+# test = [{'name': 'Jennifer', 'final': 95},
+#         {'name': 'David', 'final': 92},
+#         {'name': 'Nikolas', 'final': 98}]
+# res1 = sorted(test, key=lambda item: item['name'])
+# res2 = sorted(test, key=lambda item: item['final'], reverse=True)
+# print(res1)
+# print(res2)
+# print()
+# # # 13.3
+# test = [{'name': 'Jennifer', 'final': 95},
+#         {'name': 'David', 'final': 92},
+#         {'name': 'Nikolas', 'final': 98}]
+# res_max = max(test, key=lambda item: item['final'])
+# res_min = min(test, key=lambda item: item['final'])
+# print(res_max)
+# print(res_min)
+# print()
+# # 13.4
+# nums = [3, 5, 7, 9, 5, 7, 2]
+#
+#
+# def num_square(x):
+#     return x**2
+#
+#
+# def num_cobe(x):
+#     return x**3
+#
+#
+# s = list(map(num_square, nums))
+# c = list(map(num_cobe, nums))
+# print(s)
+# print(c)
+
+# DZ 15
+# # 15.1
+# s = 'I am learning Python. hello, WORLD !'
+# d = s[s.index('h'):s.rindex('h')+1]
+# res = s.replace(d, '')
+# print(res)
+# print()
+# # 15.2
+# s = 'I am learning Python. hello, WORLD !'
+# d = s[s.index('h'):s.rindex('h')+1]
+# res = s.replace(d, d[::-1])
+# print(res)
+# print()
+# # 15.3
+# s = '11 23 44 55 23 22'
+# res = s.replace('23', '!!!')
+# print('Ee заменяемая подстрока: 23')
+# print('Новая подстрока: !!!')
+# print(res)
+# print()
+# # 15.4
+# s = """Ежевику для ежат
+# Принесли два ежа.
+# Ежевику еле-еле
+# Ежата возле ели съели."""
+# E = s.count('Е')
+# e = s.count(' е')
+# print(s, '(', E+e, 'слов)')
+
+# DZ 16
+import math
+import re
+# mail_post = '12356@i.ru, 123_456@ru.name.ru, login@i.ru, логин-i@i.ru, login.3@i.ru, login.3-67@i.ru, 1login@ru.name.ru'
+# reg = r'\w.+'
+# print(re.findall(reg, mail_post))
+# print()
+# DZ 17
+
+# DZ 17
+# 17.1
+
+
+# def validate_name(name):
+#     return re.findall(r'[\w+@-]{6,18}', name, re.IGNORECASE)
+#
+#
+# print(validate_name('my-p@ssw0rd'))
+# print()
+# # 17.2
+#
+# test = 'В июне 2021 года, 02/06/2021, 05/06/2021, 14/06/2021, были зафиксированны максимумы ежемесечных осадков'
+# reg = r'[0-9]+[0-12]/.+[20[0-99]'
+# print(re.findall(reg, test))
+
+# DZ 18
+# def NegativeNum(lst):
+#     if lst == []:
+#         return 0
+#     else:
+#         count = NegativeNum(lst[1:])
+#         if lst[0] < 0:
+#             count = count + 1
+#         return count
+#
+#
+# print("n =", NegativeNum([-2, 3, 8, -11, -4, 6]))
+#
+# def NegativeNumbers(lst):
+#     if len(lst) == 1:
+#         if lst[0] < 1:
+#             return 1
+#         else:
+#             return 0
+#     else:
+#         if lst[0] < 1:
+#             return 1 + NegativeNumbers(lst[1:])
+#         else:
+#             return NegativeNumbers(lst[1:])
+#
+#
+# print("n =", NegativeNumbers([-2, 3, 8, -11, -4, 6]))
+
+# DZ 19
+# 19.1
+# f = open('text.txt', 'w')
+# f.write('Замена строки в текстовом документе;\nизмениения строки в списке;\nзаписать список в файл;')
+# f.close()
+# f1 = int(input('pos1='))
+# f2 = int(input('pos2='))
+# f = open('text.txt', 'r')
+# read_f = f.readlines()
+# print(''.join(read_f))
+# f.close()
+# res = read_f[f1]
+# read_f[f1] = read_f[f2]+'\n'
+# read_f[f2] = res + '\n'
+# f = open('text.txt', 'w')
+# f.writelines(read_f)
+# print()
+# print(''.join(read_f))
+# f.close()
+# # 19.2
+# f = open('text.txt', 'w')
+# f.write('Замена строки в текстовом документе;\nизмениения строки в списке;\nзаписать список в файл;\n')
+# f.close()
+# f = open('text.txt', 'r')
+# read_f = f.readlines()
+# read_f.reverse()
+# print(''.join(read_f))
+# f.close()
+# f = open('text.txt', 'w')
+# f.writelines(read_f)
+# 19.3
+# f1 = open('file1.txt', 'r', encoding='utf - 8')
+# read_f1 = f1.readlines()
+# f1.close()
+# f2 = open('file2.txt', 'r', encoding='utf - 8')
+# read_f2 = f2.readlines()
+# f2.close()
+# f3 = open('file3.txt', 'r', encoding='utf - 8')
+# read_f3 = f3.readlines()
+# f = open('file3.txt', 'w', encoding='utf - 8')
+# res = read_f1 + read_f2 + read_f3
+# f.writelines(res)
+# print(''.join(res))
+# f3.close()
+
+
+# DZ 20
+# class Book:
+#     name_book = "name"
+#     release_date = "00.00.0000"
+#     publisher = "publisher"
+#     genre = "genre"
+#     author = "author"
+#     price = "price"
+#
+#     def print_info(self):
+#         print(f"Название книги: {self.name_book}\nГод выпуска: {self.release_date}\n"
+#               f"Издатель: {self.publisher}\nЖанр: {self.genre}\n"
+#               f"Автор: {self.author}\nЦена: {self.price}")
+#
+#     def input_info(self, name_book, release_date, publisher, genre, author, price):
+#         self.name_book = name_book
+#         self.release_date = release_date
+#         self.publisher = publisher
+#         self.genre = genre
+#         self.author = author
+#         self.price = price
+#
+#     def set_name(self, name_book):  # установить имя
+#         self.name_book = name_book
+#
+#     def get_name(self):  # получить имя
+#         a = "Название книги: " + self.name_book
+#         return a
+#
+#     def set_date(self, release_date):
+#         self.release_date = release_date
+#
+#     def get_date(self):
+#         return self.release_date
+#
+#     def set_publisher(self, publisher):
+#         self.publisher = publisher
+#
+#     def get_publisher(self):
+#         return self.publisher
+#
+#     def set_genre(self, genre):
+#         self.genre = genre
+#
+#     def get_genre(self):
+#         return self.genre
+#
+#     def set_author(self, author):
+#         self.author = author
+#
+#     def get_author(self):
+#         return self.author
+#
+#     def set_price(self, price):
+#         self.price = price
+#
+#     def get_price(self):
+#         a = "Цена: " + self.price
+#         return a
+#
+# h1 = Book()
+# h1.input_info("Путь шамана.Начало пути", "5.04.2018", "Эксмо", "LitRPG", "Василий Маханенко", "100р")
+# h1.print_info()
+# h1.set_name("Война и Мир")
+# print(h1.get_name())
+# h1.set_price("300р")
+# print(h1.get_price())
+
+# DZ 21
+# from math import sqrt
+# class Rectangle:
+#     def __init__(self, l=0, w=0):
+#         self.long = l
+#         self.width = w
+#
+#     def get_long(self):
+#         return self.long
+#
+#     def get_width(self):
+#         return self.width
+#
+#     def set_square(self):
+#         res_s = self.long * self.width
+#         print('Площадь прямоугольника:', res_s)
+#
+#     def set_perimeter(self):
+#         res_p = (self.long  + self.width)*2
+#         print('Периметр прямоугольника:', res_p)
+#
+#     def set_hypotenuse(self):
+#         res_h = sqrt(self.long**2 + self.width**2)
+#         print('Гипотенуза прямоугольника:', round(res_h, 2))
+#     def figura(self):
+#         for i in range(self.long):
+#             for i in range(self.width):
+#                 print('*',end='')
+#             print()
+# p = Rectangle(3, 9)
+# print('Длинна прямоугольника:', p.get_long())
+# print('Ширина прямоугольника:', p.get_width())
+# p.set_square()
+# p.set_perimeter()
+# p.set_hypotenuse()
+# p.figura()
+
+# DZ 22
+
+# class Convert:
+#     def __init__(self, k=0):
+#         self.__k = k
+#
+#     @ property
+#     def kg(self):
+#         return self.__k
+#
+#     @kg.setter
+#     def kg(self, k):
+#         if isinstance(k, (int, float)):
+#             self.__k = k
+#         else:
+#             print('Килограммы задаются только числами')
+#
+#     def pound(self):
+#         return self.__k * 2.205
+#
+#
+# c1 = Convert(12)
+# print(c1.kg, 'кг => ', end='')
+# print(c1.pound(), 'фунтов')
+# c1.kg = 41
+# print(c1.kg, 'кг => ', end='')
+# print(c1.pound(), 'фунтов')
+
+# DZ 23
+
+# class Account:
+#     rate_usd = 0.013
+#     rate_eur = 0.011
+#     suffix = 'RUB'
+#     suffix_usd = 'USD'
+#     suffix_eur = 'EUR'
+#
+#     def __init__(self, num, surname, percent, value=0):
+#         self.__num = num
+#         self.__surname = surname
+#         self.__percent = percent
+#         self.__value = value
+#         print(f'Счет# {self.__num} принадлежит {self.__surname} был открыт')
+#         print('*' * 50)
+#
+#     def __del__(self):
+#         print('*' * 50)
+#         print(f'Счет #{self.__num} принадлежащий {self.__surname} был закрыт')
+#
+#     def set_account(self, num, surname, percent, value):
+#         self.__num = num
+#         self.__surname = surname
+#         self.__percent = percent
+#         self.__value = value
+#
+#     def get_account(self):
+#         return self.__num, self.__surname, self.__percent, self.__value
+#
+#     @classmethod
+#     def set_usd_rate(cls, rate):
+#         cls.rate_usd = rate
+#
+#     @classmethod
+#     def set_eur_rate(cls, rate):
+#         cls.rate_eur = rate
+#
+#     @staticmethod
+#     def convert(value, rate):
+#         return value * rate
+#
+#     def edit_owner(self, surname):
+#         self.__surname = surname
+#
+#     def convert_to_usd(self):
+#         usd_val = Account.convert(self.__value, Account.rate_usd)
+#         print(f'Состояние счета: {usd_val} {Account.suffix_usd}.')
+#
+#     def convert_to_eur(self):
+#         eur_val = Account.convert(self.__value, Account.rate_eur)
+#         print(f'Состояние счета: {eur_val} {Account.suffix_eur}.')
+#
+#     def print_info(self):
+#         print(f'Информация о счете')
+#         print('-' * 20)
+#         print(f'#{self.__num}')
+#         print(f'Владелец: {self.__surname}')
+#         self.print_balance()
+#         print(f'Проценты: {self.__percent:.0%}')
+#         print('-' * 20)
+#
+#     def print_balance(self):
+#         print(f'Текущий баланс {self.__value} {Account.suffix}')
+#
+#     def add_percent(self):
+#         self.__value += self.__value * self.__percent
+#         print('Проценты успешно начислены')
+#         self.print_balance()
+#
+#     def withdraw_money(self, val):
+#         if val > self.__value:
+#             print(f'К сожалению у ван нет {val} {Account.suffix}')
+#         else:
+#             self.__value -= val
+#             print(f'{val} {Account.suffix} было успешно снято')
+#         self.print_balance()
+#
+#     def add_money(self, val):
+#         self.__value += val
+#         print(f'{val} {Account.suffix} было успешно добавлено')
+#         self.print_balance()
+#
+# acc = Account('12345', 'Долгих', 0.03, 1000)
+# acc.print_balance()
+# acc.print_info()
+# acc.convert_to_usd()
+# acc.convert_to_eur()
+# print()
+#
+# Account.set_usd_rate(2)
+# acc.convert_to_usd()
+#
+# Account.set_eur_rate(3)
+# acc.convert_to_eur()
+# print()
+#
+# acc.edit_owner(' Дюма')
+# acc.print_info()
+# print()
+#
+# acc.add_percent()
+# print()
+#
+# acc.withdraw_money(3000)
+# print()
+#
+# acc.withdraw_money(100)
+# print()
+#
+# acc.add_money(5000)
+# print()
+#
+# acc.withdraw_money(3000)
+# print()
+
+# DZ 23
+# class Account:
+#     rate_usd = 0.013
+#     rate_eur = 0.011
+#     suffix = 'RUB'
+#     suffix_usd = 'USD'
+#     suffix_eur = 'EUR'
+#
+#     def __init__(self, num, surname, percent, value=0):
+#         self.__num = num
+#         self.__surname = surname
+#         self.__percent = percent
+#         self.__value = value
+#
+#     def set_num(self, num):
+#         self.__num = num
+#
+#     def set_surname(self, surname):
+#         print('-' * 20)
+#         self.__surname = surname
+#
+#     def set_percent(self, percent):
+#         self.__percent = percent
+#         self.__value += self.__value * self.__percent
+#         print('-' * 20)
+#         print('Проценты изменены : ', end='')
+#
+#     def set_value(self, value):
+#         self.__value = value
+#         print('-' * 20)
+#         print('Сумма изменена : ', end='')
+#
+#     def get_num(self):
+#         return self.__num
+#
+#     def get_surname(self):
+#         return self.__surname
+#
+#     def get_percent(self):
+#         return self.__percent
+#
+#     def get_value(self):
+#         return self.__value
+#
+#
+# acc = Account('12345', 'Долгих', 0.03, 1000)
+# acc.set_num('12355')
+# print(f'Измененый номер счета :#{acc.get_num()}')
+# acc.set_surname('Дюма')
+# print(f'Владелец изменен: {acc.get_surname()} ')
+# acc.set_percent(0.04)
+# print(acc.get_percent())
+# acc.set_value(1101)
+# print(acc.get_value())
+# print()
+#
+#
+# class Account:
+#     rate_usd = 0.013
+#     rate_eur = 0.011
+#     suffi = 'EUR'
+# x = 'RUB'
+#     suffix_usd = 'USD'
+#     suffix_eur
+#     def __init__(self, num, surname, percent, value=0):
+#         self.__num = num
+#         self.__surname = surname
+#         self.__percent = percent
+#         self.__value = value
+#
+#     def set_num(self, num):
+#         self.__num = num
+#
+#     def set_surname(self, surname):
+#         self.__surname = surname
+#
+#     def set_percent(self, percent):
+#         self.__percent = percent
+#         self.__value += self.__value * self.__percent
+#         print('Проценты изменены : ', end='')
+#
+#     def set_value(self, value):
+#         self.__value = value
+#         print('Сумма изменена :', end='')
+#
+#     def get_num(self):
+#         return self.__num
+#
+#     def get_surname(self):
+#         return self.__surname
+#
+#     def get_percent(self):
+#         return self.__percent
+#
+#     def get_value(self):
+#         return self.__value
+#
+#     nm = property(get_num, set_num)
+#     sn = property(get_surname, set_surname)
+#     prc = property(get_percent, set_percent)
+#     val = property(get_value, set_value)
+#
+#
+# acc = Account('12345', 'Долгих', 0.03, 1000)
+# acc.nm = "192938"
+# print(f'#{acc.nm} : Измененый номер счета')
+# acc.sn = 'Дюма'
+# print(f'Владелец, {acc.sn} : изменен')
+# acc.prc = 0.04
+# print(acc.prc)
+# acc.val = 1101
+# print(acc.val)
+#
+# DZ24
+
+# class Point:
+#     def __init__(self, x, y):
+#         self.__x = x
+#         self.__y = y
+#
+#     def __str__(self):
+#         return f'({self.__x}, {self.__y})'
+#
+#     def is_digit(self):
+#         if not isinstance(self.__x, (int, float)) or not isinstance(self.__y, (int, float)):
+#             print("Координаты должны быть числами")
+#             return False
+#         return True
+#
+#     def is_int(self):
+#         if not isinstance(self.__x, int) or not isinstance(self.__y, int):
+#             print("Координаты должны быть целочисленными")
+#             return False
+#         return True
+# class Prop:
+#     def __init__(self, sp: Point, ep: Point, color: str = 'red', width: int = 1):
+#         self._sp = sp
+#         self._ep = ep
+#         self._color = color
+#         self._width = width
+#
+#     def set_coords(self, sp, ep):
+#         if sp.is_digit() and ep.is_digit():
+#             self._sp = sp
+#             self._ep = ep
+#
+#
+# class Line(Prop):
+#
+#     def draw_line(self) -> None:
+#         print(f'Рисование линии: {self._sp}, {self._ep}, {self._color}, {self._width}')
+#
+#     def set_coords(self, sp, ep):
+#         if sp.is_int() and ep.is_int():
+#             self._sp = sp
+#             self._ep = ep
+#
+#
+# class Rect(Prop):
+#
+#     def draw_rect(self) -> None:
+#         print(f'Рисование прямоугольника: {self._sp}, {self._ep}, {self._color}, {self._width}')
+#
+#
+# line = Line(Point(1, 2), Point(10, 20))
+# line.draw_line()
+# line.set_coords(Point(10.2, 20), Point(100, 200))
+# line.draw_line()
+#
+# rect = Rect(Point(7, 9), Point(12, 15))
+# rect.draw_rect()
+# rect.set_coords(Point(30.5, 40.2), Point(50, 60))
+# rect.draw_rect()
+
+# DZ 25
+
+# class Liquid:
+#     def __init__(self, name, density):
+#         self.name = name
+#         self.density = density
+#
+#     def edit_density(self, value):
+#         self.density = value
+#
+#     def calc_m(self, v):
+#         m = v * self.density
+#         print(f'Вес {v} м^3 {self.name} составляет {m} кг.')
+#
+#     def calc_size(self, m):
+#         v = m / self.density
+#         print(f'Объем {m} кг {self.name} равен {v} м^3')
+#
+#     def print_info(self):
+#         print(f'Жидкость "{self.name}" (плотность = {self.density} kg/m^3).')
+#
+#
+# class Alcohol(Liquid):
+#     def __init__(self, name, density, strength):
+#         super().__init__(name, density)
+#         self.strength = strength
+#
+#     def edit_strenght(self, value):
+#         self.strength = value
+#
+#
+#
+# l = Alcohol('Wine', 1064.2, 14)
+# l.print_info()
+# l.edit_density(1000)
+# l.print_info()
+# print()
+# l.calc_m(0.5)
+# l.calc_size(300)
+# print()
+# print(l.strength)
+# l.edit_strenght(20)
+# print(l.strength)
+
+# DZ 26
+# class Student:
+#     def __init__(self, name):
+#         self.name = name
+#         self.note = self.Notebook()
+#
+#     def show(self):
+#         print(self.name, end="")
+#         self.note.show()
+#
+#     class Notebook:
+#         def __init__(self):
+#             self.brand = 'HP'
+#             self.cpu = '17'
+#             self.ram = 16
+#
+#         def show(self):
+#             print(f' => {self.brand}, {self.cpu}, {self.ram}')
+#
+# s1 = Student('Roman')
+# s2 = Student('Vladimir')
+# s1.show()
+# s2.show()
+
+# DZ 27.1
+# class Clock:
+#     __DAY = 86400
+#
+#     def __init__(self, sec: int):
+#         if not isinstance(sec, int):
+#             raise ValueError("Секунды должны быть целым числом")
+#
+#         self.sec = sec % self.__DAY
+#
+#     def __add__(self, other):
+#         if not isinstance(other, Clock):
+#             raise ArithmeticError("Правый операнд должен быть типом данных Clock")
+#         return Clock(self.sec + other.sec)
+#
+#     def __sub__(self, other):
+#         if not isinstance(other, Clock):
+#             raise ArithmeticError("Правый операнд должен быть типом данных Clock")
+#         return Clock(self.sec - other.sec)
+#
+#     def __mul__(self, other):
+#         if not isinstance(other, Clock):
+#             raise ArithmeticError()
+#         return Clock(self.sec * other.sec)
+#
+#     def __floordiv__(self, other):
+#         if not isinstance(other, Clock):
+#             raise ArithmeticError()
+#         return Clock(self.sec // other.sec)
+#
+#     def __mod__(self, other):
+#         if not isinstance(other, Clock):
+#             raise ArithmeticError()
+#         return Clock(self.sec % other.sec)
+#
+#     def __eq__(self, other):
+#         return self.sec == other.sec
+#
+#     def __ne__(self, other):
+#         return not self.__eq__(other)
+#
+#     def __gt__(self, other):
+#         return self.sec > other.sec
+#
+#     def get_format_time(self):
+#         s = self.sec % 60  # секунды
+#         m = (self.sec // 60) % 60  # минуты
+#         h = (self.sec // 3600) % 24  # часы
+#         return f'{Clock.__get_form(h)}:{Clock.__get_form(m)}:{Clock.__get_form(s)}'
+#
+#     @staticmethod
+#     def __get_form(x):
+#         return str(x) if x > 9 else "0" + str(x)
+#
+#     def __getitem__(self, item):
+#         if not isinstance(item, str):
+#             raise ValueError("Ключ должен быть строкой")
+#
+#         if item == "hour":
+#             return (self.sec // 3600) % 24
+#         elif item == "min":
+#             return (self.sec // 60) % 60
+#         elif item == "sec":
+#             return self.sec % 60
+#
+#         return "Неверный ключ"
+#
+#     def __setitem__(self, key, value):
+#         if not isinstance(key, str):
+#             raise ValueError("Ключ должен быть строкой")
+#         if not isinstance(value, int):
+#             raise ValueError("Значение должно быть целым числом ")
+#         s = self.sec % 60  # секунды
+#         m = (self.sec // 60) % 60  # минуты
+#         h = (self.sec // 3600) % 24  # часы
+#         if key == "hour":
+#             self.sec = s + 60 * m + value * 3600
+#         elif key == "min":
+#             self.sec = s + 60 * value + h * 3600
+#         elif key == "sec":
+#             self.sec = value + 60 * m + h * 3600
+#
+#
+# c1 = Clock(80000)
+# print(c1.get_format_time())
+# c1["hour"] = 12
+# c1["min"] = 20
+# c1["sec"] = 30
+# print(c1["hour"], c1["min"], c1["sec"])
+# print(c1.get_format_time())
+# print()
+# # DZ 27.2
+# class Point3D:
+#     CH = "Координата должна быть числом"
+#     RIGHT = "Правый операнд должен быть типом Point3D"
+#
+#     def __init__(self, x=0, y=0, z=0):
+#         self.x = x
+#         self.y = y
+#         self.z = z
+#
+#     def __str__(self):
+#         return f"{self.__x}, {self.__y}, {self.__z}"
+#
+#     @staticmethod
+#     def __check_value(v):
+#         return isinstance(v, int) or isinstance(v, float)
+#
+#     @property
+#     def x(self):
+#         return self.__x
+#
+#     @x.setter
+#     def x(self, value):
+#         if self.__check_value(value):
+#             self.__x = value
+#         else:
+#             print(self.CH)
+#
+#     @property
+#     def y(self):
+#         return self.__y
+#
+#     @y.setter
+#     def y(self, value):
+#         if self.__check_value(value):
+#             self.__y = value
+#         else:
+#             print(self.CH)
+#
+#     @property
+#     def z(self):
+#         return self.__z
+#
+#     @z.setter
+#     def z(self, value):
+#         if self.__check_value(value):
+#             self.__z = value
+#         else:
+#             print(self.CH)
+#
+#     def __add__(self, other):
+#         if not isinstance(other, Point3D):
+#             raise ValueError(self.RIGHT)
+#         else:
+#             return Point3D(self.__x + other.x, self.__y + other.y, self.__z + other.z)
+#
+#     def __sub__(self, other):
+#         if not isinstance(other, Point3D):
+#             raise ValueError(self.RIGHT)
+#         else:
+#             return Point3D(self.__x - other.x, self.__y - other.y, self.__z - other.z)
+#
+#     def __mul__(self, other):
+#         if not isinstance(other, Point3D):
+#             raise ValueError(self.RIGHT)
+#         else:
+#             return Point3D(self.__x * other.x, self.__y * other.y, self.__z * other.z)
+#
+#     @staticmethod
+#     def __check0(exemplar):
+#         if exemplar.x == 0 or exemplar.y == 0 or exemplar.z == 0:
+#             raise ZeroDivisionError("Ни одна из координат второго операнда не должна быть равна 0")
+#
+#     def __truediv__(self, other):
+#         if not isinstance(other, Point3D):
+#             raise ValueError(self.RIGHT)
+#         self.__check0(other)
+#         return Point3D(self.__x / other.x, self.__y / other.y, self.__z / other.z)
+#
+#     def __eq__(self, other):
+#         if not isinstance(other, Point3D):
+#             raise ValueError(self.RIGHT)
+#         return self.__x == other.x and self.__y == other.y and self.__z == other.z
+#
+#     def __getitem__(self, item):
+#         if not isinstance(item, str):
+#             raise ValueError("Ключ должен быть строкой")
+#         elif item == 'x':
+#             return self.__x
+#         elif item == 'y':
+#             return self.__y
+#         elif item == 'z':
+#             return self.__z
+#         else:
+#             print("Неверно задан ключ")
+#
+#     def __setitem__(self, key, value):
+#         if not isinstance(key, str):
+#             raise ValueError("Ключ должен быть строкой")
+#         if self.__check_value(value):
+#             if key == 'x':
+#                 self.__x = value
+#             elif key == 'y':
+#                 self.__y = value
+#             elif key == 'z':
+#                 self.__z = value
+#         else:
+#             print("Координаты должны быть числами")
+#
+#
+# pt1 = Point3D(12, 15, 18)
+# pt2 = Point3D(6, 3, 9)
+# print("Координаты 1-й точки: ", pt1)
+# print("Координаты 2-й точки: ", pt2)
+#
+# pt3 = pt1 + pt2
+# print(f"Сложение координат: ({pt3})")
+#
+# pt4 = pt1 - pt2
+# print(f"Разность координат: ({pt4})")
+#
+# pt5 = pt1 * pt2
+# print(f"Произведение координат: ({pt5})")
+#
+# pt6 = pt1 / pt2
+# print(f"Частное координат: ({pt6})")
+#
+# print(f"Равенство координат: {pt1 == pt2}")
+#
+# print("x =", pt1['x'], "x1 =", pt2['x'])
+# print("y =", pt1['y'], "y1 =", pt2['y'])
+# print("z =", pt1['z'], "z1 =", pt2['z'])
+#
+# pt1['x'] = 20
+# print("Запись значения в координату x:", pt1['x'])
+
+
+# DZ 26
+# import math
+# from abc import ABC, abstractmethod
+#
+#
+# class Shape(ABC):
+#     def __init__(self, color):
+#         self.color = color
+#
+#     @abstractmethod
+#     def square(self):
+#         pass
+#
+#     def perimeter(self):
+#         pass
+#
+#     def draw(self):
+#         pass
+#
+#     def print_info(self):
+#         pass
+#
+# class Square(Shape):
+#     def __init__(self, a, color):
+#         self.a = a
+#         super().__init__(color)
+#
+#     def square(self):
+#         return self.a * self.a
+#
+#     def perimeter(self):
+#         return 4 * self.a
+#
+#     def draw(self):
+#         for i in range(self.a):
+#             for j in range(self.a):
+#                 print('*', end='')
+#             print()
+#
+#     def print_info(self):
+#         print(f'===Квадрат===\nСторона: {self.a}\nЦвет: {self.color} \nПлощадь: {self.square()} '
+#               f'\nПериметр: {self.perimeter()}')
+#
+#
+# class Rectangle(Shape):
+#     def __init__(self, a, b, color):
+#         self.a = a
+#         self.b = b
+#         super().__init__(color)
+#
+#     def square(self):
+#         return self.a * self.b
+#
+#     def perimeter(self):
+#         return (self.a + self.b) * 2
+#
+#     def draw(self):
+#         for i in range(self.a):
+#             for j in range(self.b):
+#                 print('*', end='')
+#             print()
+#
+#     def print_info(self):
+#         print(f'===Прямоугольник===\nДлинна: {self.a}\nШирина: {self.b}\nЦвет: {self.color} \nПлощадь: {self.square()} '
+#               f'\nПериметр: {self.perimeter()}')
+#
+#
+# class Triangle(Shape):
+#     def __init__(self, a, b, c, color):
+#         self.a = a
+#         self.b = b
+#         self.c = c
+#         super().__init__(color)
+#
+#     def square(self):
+#         p = (self.a + self.b + self.c) / 2
+#         return math.sqrt(p * (p - self.a) * (p - self.b) * (p - self.c))
+#
+#     def perimeter(self):
+#         return (self.a + self.b + self.c) / 2
+#
+#     def draw(self):
+#         rows = []
+#         for i in range(self.c):
+#             rows.append(' ' * i + '*' * (self.a - 2 * i) + ' ' * i)
+#         print('\n'.join(reversed(rows)))
+#
+#     def print_info(self):
+#         print(f'===Треугольник===\nСторона 1: {self.a}\nСторона 2: {self.b}\nСторона 3: {self.c}\nЦвет: {self.color} \n'
+#               f'Площадь: {self.square():.2f}\nПериметр: {self.perimeter()}')
+#
+#
+# s = Square(3, 'red')
+# r = Rectangle(3, 7, 'green')
+# t = Triangle(11, 6, 6, 'yellow')
+# s.print_info()
+# s.draw()
+# print()
+# r.print_info()
+# r.draw()
+# print()
+# t.print_info()
+# t.draw()
+
+# DZ 27
+
+# class OldOrder:
+#     def __set_name__(self, owner, name):
+#         self.__name = name
+#
+#     def __get__(self, instance, owner):
+#         return instance.__dict__[self.__name]
+#
+#     def __set__(self, instance, value):
+#         if value <= 0:
+#             raise ValueError(f'{self.__name} число должно быть положительным')
+#         instance.__dict__[self.__name] = value
+#
+#
+# class Order:
+#     price = OldOrder()
+#     amount = OldOrder()
+#
+#     def __init__(self, name, price, amount):
+#         self.name = name
+#         self.price = price
+#         self.amount = amount
+#
+#     def sum(self):
+#         return self.price * self.amount
+#
+#
+# o = Order('apple', 5, 10)
+# print(o.sum())
+
+# # DZ 28
+# class Integer:
+#     @classmethod
+#     def verify(cls, coord):
+#         if not isinstance(coord, int) or coord <= 0:
+#             raise TypeError(f"Координата {coord} должна быть положительным целым числом")
+#
+#     def __set_name__(self, owner, name):
+#         self.name = "_" + name
+#
+#     def __get__(self, instance, owner):
+#         return getattr(instance, self.name)
+#
+#     def __set__(self, instance, value):
+#         self.verify(value)
+#         setattr(instance, self.name, value)
+#
+#
+# class Triangle:
+#     __a = Integer()
+#     b = Integer()
+#     c = Integer()
+#
+#     def __init__(self, a, b, c):
+#         self.__a = a
+#         self.b = b
+#         self.c = c
+#
+#     def existence(self):
+#         if (self.__a + self.b > self.c) and (self.__a + self.c > self.b) and (self.b + self.c > self.__a):
+#             return "существует"
+#         else:
+#             return "не существует"
+#
+#     def info(self):
+#         print(f"Треугольник со сторонами ({self.__a}, {self.b}, {self.c}) {self.existence()}")
+#
+#
+# t1 = Triangle(2, 5, 6)
+# t2 = Triangle(5, 2, 8)
+# t3 = Triangle(7, 3, 6)
+#
+# t1.info()
+# t2.info()
+# t3.info()
+
+# DZ 30.10
+from Employee import *
+
+print('Расчет заработной платы')
+print('='*50)
+a = admin.Admin(1, 'Валерий Задорожный')
+a.show_info()
+print()
+w = worker.Worker(2, 'Илья Кромин', 6)
+w.show_info()
+print()
+m = manager.Manager(3, 'Николай Хорольский', 25)
+m.show_info()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
