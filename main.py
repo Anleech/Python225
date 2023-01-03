@@ -1072,6 +1072,7 @@
 # print(s, '(', E+e, 'слов)')
 
 # DZ 16
+import csv
 import math
 import re
 # mail_post = '12356@i.ru, 123_456@ru.name.ru, login@i.ru, логин-i@i.ru, login.3@i.ru, login.3-67@i.ru, 1login@ru.name.ru'
@@ -2228,16 +2229,52 @@ import re
 #         break
 # DZ 33
 
+# import csv
+# #
+# # with open('data2.csv', 'r') as f:
+# #     reader = csv.reader(f, delimiter=';')
+# #     for row in reader:
+# #         print(row)
+
+# DZ 34
+from bs4 import BeautifulSoup
+import requests
 import csv
 
-with open('data2.csv', 'r') as f:
-    reader = csv.reader(f, delimiter=';')
-    for row in reader:
-        print(row)
+
+def get_html(url):
+    r = requests.get(url)
+    return r.text
 
 
+def write_csv(data):
+    with open("iternet-shop.csv", "a") as f:
+        writer = csv.writer(f, lineterminator="\n", delimiter=";")
+        writer.writerow((data['kod'], data['name'], data['price']))
 
 
+def get_data(html):
+    soup = BeautifulSoup(html, 'lxml')
+    mains = soup.find('div', class_='goods_container')
+    blocks = mains.find_all('div', class_='good_block')
+
+
+    for block in blocks:
+        kod = block.find('div', class_='id').find('span').find('span').text
+        name = block.find('span', class_='title').text
+        price = block.find('div', class_='price3').text
+        data = {'kod': kod, 'name': name, 'price': price}
+        print(data)
+        write_csv(data)
+
+
+def main():
+    url = 'https://satro-paladin.com/'
+    print(get_data(get_html(url)))
+
+
+if __name__ == '__main__':
+    main()
 
 
 
