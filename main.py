@@ -2237,46 +2237,147 @@ import re
 # #         print(row)
 
 # DZ 34
-from bs4 import BeautifulSoup
-import requests
-import csv
+# from bs4 import BeautifulSoup
+# import requests
+# import csv
+#
+#
+# def get_html(url):
+#     r = requests.get(url)
+#     return r.text
+#
+#
+# def write_csv(data):
+#     with open("iternet-shop.csv", "a") as f:
+#         writer = csv.writer(f, lineterminator="\n", delimiter=";")
+#         writer.writerow((data['kod'], data['name'], data['price']))
+#
+#
+# def get_data(html):
+#     soup = BeautifulSoup(html, 'lxml')
+#     mains = soup.find('div', class_='goods_container')
+#     blocks = mains.find_all('div', class_='good_block')
+#
+#
+#     for block in blocks:
+#         kod = block.find('div', class_='id').find('span').find('span').text
+#         name = block.find('span', class_='title').text
+#         price = block.find('div', class_='price3').text
+#         data = {'kod': kod, 'name': name, 'price': price}
+#         print(data)
+#         write_csv(data)
+#
+#
+# def main():
+#     url = 'https://satro-paladin.com/'
+#     print(get_data(get_html(url)))
+#
+#
+# if __name__ == '__main__':
+#     main()
 
 
-def get_html(url):
-    r = requests.get(url)
-    return r.text
+# DZ35
+import json
+
+data = {"Россия": "Москва"}
 
 
-def write_csv(data):
-    with open("iternet-shop.csv", "a") as f:
-        writer = csv.writer(f, lineterminator="\n", delimiter=";")
-        writer.writerow((data['kod'], data['name'], data['price']))
+def load_data(func):
+    def wrap(*args, filename):
+        try:
+            data = json.load(open(filename))
+        except FileNotFoundError:
+            data = {}
+        func(*args, filename)
+        print("Файл сохранен")
+    return wrap
 
 
-def get_data(html):
-    soup = BeautifulSoup(html, 'lxml')
-    mains = soup.find('div', class_='goods_container')
-    blocks = mains.find_all('div', class_='good_block')
+class CountryCapital:
+    def __init__(self, country, capital):
+        self.country = country
+        self.capital = capital
+        data[self.country] = self.capital
+
+    def __str__(self):
+        return f'{self.country}: {self.capital}'
+
+    @classmethod
+    @load_data
+    def add_country(cls, new_country, new_capital, filename):
+
+        data[new_country] = new_capital
+
+        with open(filename, "w") as f:
+            json.dump(data, f, indent=2, ensure_ascii=False)
+
+    @classmethod
+    @load_data
+    def delete_country(cls, del_country, filename):
+        if del_country in data:
+            del data[del_country]
+
+            with open(filename, "w") as f:
+                json.dump(data, f, indent=2, ensure_ascii=False)
+        else:
+            print("Такой страны в базе нет")
+
+    @classmethod
+    @load_data
+    def search_data(cls, country, filename):
+        if country in data:
+            print(f"Страна {country} столица {data[country]} есть в словаре!")
+        else:
+            print(f"Страна {country} отсутствует в словаре")
+
+    @classmethod
+    @load_data
+    def change_capital(cls, country, new_value, filename):
+
+        if country in data:
+            data[country] = new_value
+
+            with open(filename, "w") as f:
+                json.dump(data, f, indent=2, ensure_ascii=False)
+        else:
+            print("Такой страны в базе нет")
+
+    @classmethod
+    def load_from_file(cls, filename):
+        with open(filename, 'r') as f:
+            print(json.load(f))
 
 
-    for block in blocks:
-        kod = block.find('div', class_='id').find('span').find('span').text
-        name = block.find('span', class_='title').text
-        price = block.find('div', class_='price3').text
-        data = {'kod': kod, 'name': name, 'price': price}
-        print(data)
-        write_csv(data)
+index = ''
+filename1 = 'list_capital.json'
+with open(filename1, "w") as fw:
+    json.dump(data, fw, indent=2, ensure_ascii=False)
 
-
-def main():
-    url = 'https://satro-paladin.com/'
-    print(get_data(get_html(url)))
-
-
-if __name__ == '__main__':
-    main()
-
-
+while index != 6:
+    try:
+        print("*" * 40)
+        index = int(input('Выбор действия:\n1 - добавление данных\n2 - удаление данных\n'
+                          '3 - поиск данных\n4 - редактирование данных\n5 - просмотр данных\n'
+                          '6 - завершение работы\nВвод: '))
+        if index == 1:
+            country_name = input("Введите название страны (с заглавной буквы): ")
+            capital_name = input("Введите название столицы страны (с заглавной буквы): ")
+            CountryCapital.add_country(country_name, capital_name, filename='list_capital.json')
+        if index == 2:
+            country_name = input("Введите страну для удаления (с заглавной буквы): ")
+            CountryCapital.delete_country(country_name, filename='list_capital.json')
+        if index == 3:
+            country_name = input("Введите название страны (с заглавной буквы): ")
+            CountryCapital.search_data(country_name, filename='list_capital.json')
+        if index == 4:
+            country_name = input("Введите название страны столицу которой хотите изменить (с заглавной буквы): ")
+            new_capital = input("Введите новое название столицы: ")
+            CountryCapital.change_capital(country_name, new_capital, filename='list_capital.json')
+        if index == 5:
+            CountryCapital.load_from_file(filename='list_capital.json')
+    except IndexError:
+        break
 
 
 
