@@ -1,7 +1,5 @@
 from conroller import Controller
 
-
-
 def main():
     app = Controller()
     app.run()

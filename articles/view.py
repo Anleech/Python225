@@ -17,7 +17,7 @@ class UserInterface:
               "\n2 - просмотр статей"
               "\n3 - просмотр определенной статьи"
               "\n4 - удаление статьи"
-              "\nq - выходииз программы")
+              "\nq - выход из программы")
         user_anwer = input("Выберите вариант действия: ")
         return user_anwer
 
@@ -55,3 +55,7 @@ class UserInterface:
     @add_title("Удаление статьи ")
     def remove_single_articles(self,article):
         print(f"Статья {article} - была удалена")
+
+    @add_title("Сообщение об ошибке")
+    def show_incorrect_answer_error(self, answer):
+        print(f"Варианта {answer} не существует")
