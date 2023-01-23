@@ -2453,11 +2453,11 @@ import re
 # if __name__ =='__main__':
 #     run()
 
-import sqlite3 as sq
-
-with sq.connect("profile.db") as con:
-    cur = con.cursor()
-    cur.execute("DROP TABLE users")
+# import sqlite3 as sq
+#
+# with sq.connect("profile.db") as con:
+#     cur = con.cursor()
+#     cur.execute("DROP TABLE users")
     # cur.execute("""CREATE TABLE IF NOT EXISTS users(
     # id INTEGER PRIMARY KEY AUTOINCREMENT,
     # name TEXT NOT NULL,
@@ -2465,8 +2465,41 @@ with sq.connect("profile.db") as con:
     # data TEXT
     # )""")
 
+import sqlite3 as sq
+
+with sq.connect("users.db") as con:
+    cur = con.cursor()
+    cur.execute("""
+
+    CREATE  TABLE IF NOT EXISTS person(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    phone BLOB NOT NULL DEFAULT '+79090000000',
+    age INTEGER NOT NULL CHECK(age > 0 AND age < 100),
+    email TEXT UNIQUE
+    )
+    """)
+    cur.execute("""
+        INSERT INTO person(email, ame, age) 
+        VALUES (1, 'Ирина', '+79999999999', 23, 'irina@mail.ru')
+         """)
 
 
+
+
+
+    # cur.execute("""
+    # ALTER TABLE person
+    # RENAME TO person_table;
+    # """)
+    # cur.execute("""
+    #     ALTER TABLE person_table
+    #     ADD COLUMN addres TEXT
+    #     """)
+    # cur.execute("""
+    #     ALTER TABLE person_table
+    #     RENAME COLUMN addres TO home_address;
+    # """)
 
 
 
