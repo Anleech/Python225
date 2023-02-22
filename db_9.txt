@@ -1,0 +1,190 @@
+1.Auaaaeoa nienie nooaaioia oeceei-iaoaiaoe?aneiai oaeoeuoaoa.
+SELECT FIO
+FROM Student
+WHERE "Group" IN
+    (SELECT "Group"
+    From G
+    WHERE Kafedra IN
+        (SELECT Kafedra
+        FROM Kafedra
+        WHERE Decanat LIKE 'Oeceei-iaoaiaoe?aneee')    
+        )
+
+2.Nooaaiou eaeie eaoaa?u e oaeoeuoaoa naaaaee nioeieiae?.
+SELECT Kafedra, Decanat
+FROM Kafedra
+WHERE Kafedra IN
+    (SELECT Kafedra
+    FROM G
+    WHERE "Group" IN
+        (SELECT "Group"
+        FROM Student
+        WHERE ID_St IN
+            (SELECT ID_St
+            FROM Exzamen
+            WHERE Predmet LIKE 'Nioeieiaey'
+            )
+        )
+    )
+
+3.Auaaaeoa eaoaa?u, nienie nooaaioia, nienie nooaaioia a aeoaaeoiii ii?yaea.
+SELECT s.FIO,
+    (SELECT g.Kafedra
+    FROM G g
+    WHERE s."Group"=g."Group") AS [Kafedra]
+FROM Student s
+ORDER BY FIO
+
+
+4.	Auaanoe iiia?a ca?aoie oieuei nooaaioia oeceei-oaoie?aneiai oaeoeuoaoa.
+SELECT N_Z
+FROM Zachetki
+WHERE Id_Studenta IN
+    (SELECT ID_St
+    FROM Exzamen
+    WHERE ID_St IN
+        (SELECT ID_St
+        FROM Student
+        WHERE "Group" IN
+            (SELECT "Group"
+            FROM G
+            WHERE Kafedra IN
+                (SELECT Kafedra
+                FROM Kafedra
+                WHERE Decanat LIKE 'Oeceei-oaoie?aneee'
+                )
+            )
+        )
+    )
+
+
+5.	Auaaaeoa nooaaioia oeceei-oaoie?aneiai oaeoeuoaoa naaaoeo eiino?aiiue ycue ia 5.
+SELECT FIO
+FROM Student
+WHERE "Group" IN
+    (SELECT "Group"
+    FROM G
+    WHERE Kafedra IN
+    (SELECT Kafedra
+    FROM Kafedra
+     WHERE Decanat LIKE 'Oeceei-oaoie?aneee')
+     ) AND 
+     ID_St IN
+     (SELECT Id_St
+     FROM Exzamen
+     WHERE Predmet LIKE 'Eiino?. ycue' AND Ball=5)
+
+
+6.	Iian?eoaou neieuei ?acee?iuo i?aaiaoia naaaaeinu a nanne?.
+SELECT DISTINCT Predmet
+FROM Exzamen
+
+
+7.	Iaieoeoa cai?in, eioi?ue auaiaeo n?aaiee aaee ii yecaiaiai Aaneeuaaie.
+SELECT AVG(Ball)
+FROM Exzamen
+WHERE ID_St IN
+     (SELECT ID_St
+     FROM Student
+     WHERE FIO LIKE 'Aaneeuaaa%')
+
+8.	Ii?aaaeeoa neieuei ?aeiaae o?eony ia ea?aie niaoeaeuiinoe.
+SELECT COUNT(FIO) AS [Eiee?anoai ?aeiaae], Special
+FROM Student
+GROUP BY Special
+HAVING COUNT(FIO)    
+
+
+9.	Iaieoeoa cai?in, eioi?ue iiea?ao ana a?oiiu oeceei-oaoie?aneiai oaeoeuoaoa.
+SELECT "Group"
+FROM G
+WHERE Kafedra IN
+    (SELECT Kafedra
+    FROM Kafedra
+    WHERE Decanat LIKE 'Oeceei-oaoie?aneee')
+
+
+10.	Auaanoe nienie oaieeee nooaaioia iieo?eaoeo 5 aaeeia ii aeooa?aioeaeuiui o?aaiaieyi.
+SELECT FIO
+FROM Student
+WHERE ID_St IN
+    (SELECT Id_St
+    FROM Exzamen
+    WHERE Predmet LIKE 'Aeooa?aioeaeuiua o?aaiaiey' AND Ball=5)
+
+
+11.	Iaieoeoa cai?in, eioi?ue iiea?ao,  neieuei yecaiaiia  naaaae Oooia.
+SELECT COUNT(Predmet) AS [Eiee?anoai yecaiaiia]
+FROM Exzamen
+WHERE Id_St IN
+    (SELECT ID_St
+    FROM Student
+    WHERE FIO LIKE 'Oooia%')
+
+
+12.	Auaaaeoa iacaaiea eaoaa?u nooaaioia, ia naaaoeo oioy au iaei yecaiai.
+SELECT Kafedra
+FROM Kafedra
+WHERE Kafedra IN
+    (SELECT Kafedra
+    FROM G
+    WHERE "Group" IN
+        (SELECT "Group"
+        FROM Student
+        WHERE ID_St IN
+            (SELECT Id_St
+            FROM Exzamen
+            WHERE Ball IS NULL)
+        )
+    )
+
+
+13.	Iian?eoaou eiee?anoai eaoaa? ia ea?aii oaeoeuoaoa.
+SELECT COUNT(Kafedra) AS [Eiee?anoai eaoaa?], Decanat
+FROM Kafedra
+GROUP BY Decanat
+HAVING COUNT(Kafedra)
+
+
+14.	Iian?eoaou eiee?anoai iyoa?ie ia oeceei-iaoaiaoe?aneii oaeoeuoaoa.
+SELECT COUNT(Ball) AS [Eiee?anoai 5]
+FROM Exzamen
+WHERE Id_St IN
+    (SELECT ID_St 
+    FROM Student
+    WHERE "Group" IN
+        (SELECT "Group"
+        FROM G
+        WHERE Kafedra IN
+            (SELECT Kafedra
+            FROM Kafedra
+            WHERE Decanat LIKE 'Oeceei-iaoaiaoe?aneee')
+        )
+    ) AND Ball=5
+
+
+
+15.	Ii?aaaeeoa iiia?a ca?aoiuo eie?ae a?oiiu OO151
+SELECT N_Z 
+FROM Zachetki
+WHERE id_Studenta IN
+    (SELECT Id_ST
+    FROM Exzamen
+    WHERE Id_St IN
+        (SELECT ID_St
+        FROM Student
+        WHERE "Group"="OO151")
+    )
+
+
+16.	Auaaaeoa ia?a?aiu niaoeaeuiinoae oeceei-iaoaiaoe?aneiai oaeoeuoaoa.
+SELECT DISTINCT Special
+FROM Student
+WHERE "Group" IN
+    (SELECT "Group"
+    FROM G
+    	WHERE Kafedra IN
+    	(SELECT Kafedra
+    	FROM Kafedra
+     	WHERE Decanat LIKE 'Oeceei-oaoie?aneee')
+     )
